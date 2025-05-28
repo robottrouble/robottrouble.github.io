@@ -2,15 +2,33 @@
 <html>
 <head>
   <title>ACCT A Numberr Lookup</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* Remove vertical centering */
+      min-height: 100vh;
+      margin: 0;
+    }
+    .centered-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+      margin-top: 3em; /* Optional: add some space from the top */
+    }
+  </style>
 </head>
 <body>
 
-  <label for="myInput">Find Doggo:</label>
-  ACCT-A-<input type="text" id="myInput" name="myInput" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
-  <button onclick="getValue()">Get Value</button>
+  <div class="centered-form">
+    <input type="text" id="myInput" name="myInput" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+    <button onclick="getID()">Lookup</button>
+  </div>
 
   <script>
-    function getValue() {
+    function getID() {
       const inputElement = document.getElementById("myInput");
       const inputValue = inputElement.value.trim();
 
@@ -20,7 +38,6 @@
         return;
       }
 
-      alert("The value is: " + inputValue);
       window.location.href = "https://www.shelterluv.com/embed/animal/ACCT-A-" + encodeURIComponent(inputValue);
     }
   </script>
